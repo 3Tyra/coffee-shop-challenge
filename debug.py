@@ -3,24 +3,25 @@ from coffee import Coffee
 from order import Order
 
 
-c1 = Customer("Byron")
-c2 = Customer("Tiffany")
+byron = Customer("Byron")
+tiffany = Customer("Tiffany")
 
 
 latte = Coffee("Latte")
 mocha = Coffee("Mocha")
 
 
-c1.create_order(latte, 5.0)
-c1.create_order(latte, 6.0)
-c1.create_order(mocha, 4.5)
-c2.create_order(latte, 10.0)
+byron.create_order(latte, 5.0)
+byron.create_order(mocha, 6.0)
+tiffany.create_order(latte, 7.5)
 
 
-print(f"{c1.name} ordered: {[coffee.name for coffee in c1.coffees()]}")
-print(f"{c2.name} ordered: {[coffee.name for coffee in c2.coffees()]}")
+print(f"Byron's coffees: {[c.name for c in byron.coffees()]}")
+print(f"Tiffany's coffees: {[c.name for c in tiffany.coffees()]}")
+print(f"Latte customers: {[c.name for c in latte.customers()]}")
+print(f"Latte orders: {latte.num_orders()}")
+print(f"Latte average price: {latte.average_price():.2f}")
 
 
-print(f"{latte.name} has {latte.num_orders()} orders.")
-print(f"Average price of {latte.name}: {latte.average_price():.2f}")
-print(f"Most aficionado of {latte.name}: {Customer.most_aficionado(latte).name}")
+top = Customer.most_aficionado(latte)
+print(f"Most aficionado for latte: {top.name if top else 'None'}")
