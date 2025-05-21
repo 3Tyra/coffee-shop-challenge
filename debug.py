@@ -6,6 +6,7 @@ from order import Order
 c1 = Customer("Byron")
 c2 = Customer("Tiffany")
 
+
 latte = Coffee("Latte")
 mocha = Coffee("Mocha")
 
@@ -17,6 +18,9 @@ c2.create_order(latte, 10.0)
 
 
 print(f"{c1.name} ordered: {[coffee.name for coffee in c1.coffees()]}")
+print(f"{c2.name} ordered: {[coffee.name for coffee in c2.coffees()]}")
+
+
 print(f"{latte.name} has {latte.num_orders()} orders.")
 print(f"Average price of {latte.name}: {latte.average_price():.2f}")
 print(f"Most aficionado of {latte.name}: {Customer.most_aficionado(latte).name}")
